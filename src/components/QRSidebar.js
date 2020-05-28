@@ -1,7 +1,8 @@
 import React from 'react'
 import { css } from 'styled-components'
-import QRCode from 'qrcode.react'
+
 import Button from './Button'
+import QR from './QR'
 
 const QRSidebar = ({ url, width, token, onSnapshot, onReset }) => (
   <div
@@ -45,15 +46,7 @@ const QRSidebar = ({ url, width, token, onSnapshot, onReset }) => (
           width: 100%;
         `}
       >
-        <QRCode
-          value={url}
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-          size={300}
-          bgColor="transparent"
-        />
+        <QR url={url} />
       </div>
       <a
         css={css`
