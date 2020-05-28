@@ -50,3 +50,4 @@ export const redraw = ({ ctx, db, width, height }) => {
   const imageData = new ImageData(ua, width, height)
   ctx.putImageData(imageData, 0, 0)
 }
+export const isBrowser = () => typeof window !== 'undefined'

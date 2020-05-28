@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react'
 
+import { isBrowser } from '../utils/index'
+
 export default function useWindowSize() {
-  const [size, setSize] = useState([window.innerWidth, window.innerHeight])
+  const [size, setSize] = useState([
+    isBrowser() && window.innerWidth,
+    isBrowser() && window.innerHeight,
+  ])
   const updateSize = () => {
-    setSize([window.innerWidth, window.innerHeight])
+    setSize([
+      isBrowser() && window.innerWidth,
+      isBrowser() && window.innerHeight,
+    ])
   }
   useEffect(() => {
-    window.addEventListener('resize', updateSize)
+    if (isBrowser()) {
+      window.addEventListener('resize', updateSize)
+    }
 
-    return () => window.removeEventListener('resize', updateSize)
+    return () => isBrowser() && window.removeEventListener('resize', updateSize)
   })
 
   return size

@@ -4,7 +4,7 @@ import { css } from 'styled-components'
 
 import Layout from '../components/Layout'
 import useWindowSize from '../hooks/useWindowSize'
-import { colorConverter, redraw } from '../utils/index'
+import { colorConverter, redraw, isBrowser } from '../utils/index'
 import { Header, QRSidebar, CanvasBorder } from '../components'
 
 const CanvasPage = () => {
@@ -21,8 +21,17 @@ const CanvasPage = () => {
   const sideBarWidth = 350
   const [pixelSize, setPixelSize] = useState(50)
 
-  const url = window.location.origin
-  const token = new URLSearchParams(window.location.search).get('token')
+  const url =
+    process.env.GATSBY_FRONTEND_URL || (isBrowser() && window.location.origin)
+  const token = new URLSearchParams(isBrowser() && window.location.search).get(
+    'token'
+  )
+
+  const changeColor = ({ color, column, row }) => {
+    canvas.current
+      .getContext('2d')
+      .putImageData(colorConverter(color), column, row)
+  }
 
   useEffect(() => {
     const connect = async () => {
@@ -63,12 +72,6 @@ const CanvasPage = () => {
     const sections = Math.max(width + 1, height + 1)
     setPixelSize(Math.floor(maxSize / sections))
   }, [width, height, windowSize])
-
-  const changeColor = ({ color, column, row }) => {
-    canvas.current
-      .getContext('2d')
-      .putImageData(colorConverter(color), column, row)
-  }
 
   const handleSnapshot = () => {
     socket.current.emit(
