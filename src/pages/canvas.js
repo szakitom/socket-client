@@ -84,13 +84,8 @@ const CanvasPage = () => {
   }
 
   const handleReset = () => {
-    socket.current.emit('reset', (data) => {
-      if (typeof data !== 'string') {
-        const ctx = canvas.current.getContext('2d')
-        redraw({ ctx, width, height, db: data })
-      } else {
-        alert(data)
-      }
+    socket.current.emit('reset', (message) => {
+      alert(message)
     })
   }
 
