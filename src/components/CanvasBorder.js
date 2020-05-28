@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from 'styled-components'
 
 import Index from './CanvasIndex'
+import Overlay from './Overlay'
 
 const CanvasBorder = ({
   children,
@@ -20,8 +21,10 @@ const CanvasBorder = ({
       grid-template-areas:
         'space column'
         'row canvas';
+      position: relative;
     `}
   >
+    <Overlay width={width + 1} height={height + 1} size={pixelSize} />
     <div
       css={css`
         grid-area: space;
