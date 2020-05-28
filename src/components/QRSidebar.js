@@ -30,7 +30,7 @@ const QRSidebar = ({ url, width, token, onSnapshot, onReset }) => (
         border-radius: 20px;
         box-shadow: 1px -1px 4px 2px #2f202029;
         max-height: 500px;
-        padding: 20px 0;
+        padding: 0;
       `}
     >
       <div
@@ -42,7 +42,7 @@ const QRSidebar = ({ url, width, token, onSnapshot, onReset }) => (
       </div>
       <div
         css={css`
-          padding: 20px 50px;
+          padding: 0px 50px;
           width: 100%;
         `}
       >
