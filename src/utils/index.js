@@ -50,4 +50,13 @@ export const redraw = ({ ctx, db, width, height }) => {
   const imageData = new ImageData(ua, width, height)
   ctx.putImageData(imageData, 0, 0)
 }
+
+export const getRandomColor = () => {
+  const randomColor = `${Math.random().toString(16)}000000`.substring(2, 8)
+  if (randomColor.length !== 6) {
+    return '000000'
+  }
+  return `#${randomColor}`
+}
+
 export const isBrowser = () => typeof window !== 'undefined'
