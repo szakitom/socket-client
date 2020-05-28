@@ -2,6 +2,8 @@ import React from 'react'
 import { createGlobalStyle, css } from 'styled-components'
 import { Helmet } from 'react-helmet'
 
+import SEO from './Seo'
+
 const GlobalStyle = createGlobalStyle`
   * {
     border: 0;
@@ -16,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => (
   <>
     <GlobalStyle />
+    <SEO />
     <Helmet>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link

@@ -1,6 +1,6 @@
 {
-  "name": "brb",
-  "private": true,
+  "name": "pixel-canvas",
+  "private": false,
   "description": "A collaborative pixel canvas",
   "version": "0.1.0",
   "author": "Tamás Szabó <tamas@szaboo.com>",
@@ -36,7 +36,7 @@
     "prettier": "2.0.5"
   },
   "keywords": [
-    "gatsby"
+    "socket", "collaborative", "pixel", "client", "canvas"
   ],
   "license": "MIT",
   "scripts": {
@@ -51,9 +51,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/szakitom/socket-client"
   }
 }
