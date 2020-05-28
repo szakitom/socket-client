@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { isBrowser } from '../utils/index'
+import { isBrowser } from '../utils'
 
 export default function useWindowSize() {
   const [size, setSize] = useState([

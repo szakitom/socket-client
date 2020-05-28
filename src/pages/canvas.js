@@ -4,7 +4,7 @@ import { css } from 'styled-components'
 
 import Layout from '../components/Layout'
 import useWindowSize from '../hooks/useWindowSize'
-import { colorConverter, redraw, isBrowser } from '../utils/index'
+import { colorConverter, redraw, isBrowser } from '../utils'
 import { Header, QRSidebar, CanvasBorder } from '../components'
 
 const CanvasPage = () => {
